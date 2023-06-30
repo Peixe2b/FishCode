@@ -1,0 +1,11 @@
+core components:
+    1. game
+    2. window
+    3. __wrapper
+    4. keyboard
+
+
+configure:
+    1. setup
+    2. config
+    3. path
