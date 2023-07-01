@@ -1,2 +1,2 @@
 # FishCode
- uma game engine simples em python
+ a simple game engine in Python 
