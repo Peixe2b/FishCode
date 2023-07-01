@@ -1,7 +1,7 @@
 core components:
     1. game
     2. window
-    3. __wrapper
+    3. wrapper
     4. keyboard
 
 

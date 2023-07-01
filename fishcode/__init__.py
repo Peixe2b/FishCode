@@ -1,10 +1,11 @@
+from fishcode.src.wrapper import SDL
+from fishcode.src.window import WINDOW
 from fishcode.src.game import Game
-from fishcode.src.window import Window
-from fishcode.src.wrapper import *
 
 def run(game: Game):
+    SDL.SDL_Init()
     game.init()
 
-    while True:
+    while WINDOW.running:
         game.update()
         game.draw()

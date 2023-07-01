@@ -3,13 +3,13 @@ import fishcode
 
 class App(fishcode.Game):
     def init(self):
-        print("FISH")
+        super().init()
     
     def update(self):
-        print("LOADING")
-    
+        super().update()
+
     def draw(self):
-        pass
+        super().draw()
 
 app = App()
 fishcode.run(app)
