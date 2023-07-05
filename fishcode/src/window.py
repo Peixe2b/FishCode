@@ -1,44 +1,36 @@
-import win32gui as gui
-import win32con as con
-import win32api as api
-
-
-def window_proc(hwnd, msg, wparam, lparam):
-    if msg == con.WM_QUIT:
-        gui.PostQuitMessage(0)
-        WINDOW.running = False
-        return 0
-    return gui.DefWindowProc(hwnd, msg, wparam, lparam)
+import glfw as GLFW
+from OpenGL import *
+from OpenGL.GL import *
 
 
 class Window:
     def __init__(self):
-        self.title = "FishCode"
-        self.width = 500
-        self.height = 500
+        self.__title = "FishCode"
+        self.width = 720
+        self.height = 480
         self.x = 120
         self.y = 120
-        self.running = True
+        self.maximize = False
+        self.bg_color = (0, 0, 0)
     
     def init(self):
-        self.mainWindow = gui.WNDCLASS()
-        self.mainWindow.lpszClassName = "MainWindow"
-        self.mainWindow.lpfnWndProc = window_proc
-        gui.RegisterClass(self.mainWindow)
-        self.window = gui.CreateWindow(
-            self.mainWindow.lpszClassName, self.title, 0, self.x, self.y,
-            self.width, self.height, None, None, gui.GetModuleHandle(None),
-            None
-        )
-        gui.ShowWindow(self.window, con.SW_SHOW)
-        gui.UpdateWindow(self.window)
+        GLFW.init()
+        GLFW.window_hint(GLFW.RESIZABLE, self.maximize)
+        self.window = GLFW.create_window(self.width, self.height, self.__title, None, None)
+        GLFW.make_context_current(self.window)
 
     def update(self):
-        message = gui.GetMessage(None, 0, 0)
-        if message[1] == con.WM_QUIT:
-            gui.DestroyWindow(self.window)
-            print("Exit")
-        gui.TranslateMessage(message[1])
-        gui.DispatchMessage(message[1])
+        GLFW.poll_events()
+        glClear(GL_COLOR_BUFFER_BIT)
+        glClearColor(
+            self.bg_color[0], 
+            self.bg_color[1],
+            self.bg_color[2],
+            0
+        )
+        GLFW.swap_buffers(self.window)
+
+    def set_title(arg, title):
+        self.__title = title
 
 WINDOW = Window()
