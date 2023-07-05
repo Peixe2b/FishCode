@@ -12,7 +12,6 @@ def run(game: Game):
 
 def exit_game():
     GLFW.terminate()
-    WINDOW.running = False
 
 def glfw_api_version():
     print(GLFW.api_version())
