@@ -8,4 +8,3 @@ core components:
 configure:
     1. setup
     2. config
-    3. path
