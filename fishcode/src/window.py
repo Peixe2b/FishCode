@@ -10,12 +10,12 @@ class Window:
         self.height = 480
         self.x = 120
         self.y = 120
-        self.maximize = False
+        self.resizable = False
         self.bg_color = (0, 0, 0)
     
     def init(self):
         GLFW.init()
-        GLFW.window_hint(GLFW.RESIZABLE, self.maximize)
+        GLFW.window_hint(GLFW.RESIZABLE, self.resizable)
         self.window = GLFW.create_window(self.width, self.height, self.__title, None, None)
         GLFW.make_context_current(self.window)
 
