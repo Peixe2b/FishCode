@@ -14,4 +14,5 @@ def exit_game():
     GLFW.terminate()
 
 def glfw_api_version():
-    print(GLFW.api_version())
+    print(f"FishCode = 0.0.6")
+    print(f"GLFW = {GLFW.get_version()}")
