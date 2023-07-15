@@ -10,9 +10,9 @@ def run(game: Game):
         game.update()
         game.draw()
 
-def exit_game():
+def terminate():
     GLFW.terminate()
 
-def glfw_api_version():
+def get_version():
     print(f"FishCode = 0.0.6")
     print(f"GLFW = {GLFW.get_version()}")
