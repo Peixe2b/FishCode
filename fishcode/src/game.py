@@ -1,6 +1,3 @@
-from fishcode.src.window import WINDOW
-
-
 class Game:
     def init(self):
         pass
